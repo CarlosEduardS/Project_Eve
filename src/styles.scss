@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background-color: black;
+    color: white;
+}
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: azure;
+        color: black;
+    }
+    button {
+        background-color: azure;
+        color: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: rgb(33, 33, 33);
+        color: white;
+    }
+}

@@ -1,0 +1,75 @@
+header {
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    top: 2px;
+    height: 19%;
+    left: 0;
+    position: fixed;
+}
+p {
+    margin-top: 25vh;
+}
+h1 {
+    grid-column: 1 / span 2;
+}
+.imgLogo {
+    grid-column: 3;
+    margin-left: -20vh;
+}
+.User-icon {
+    border-radius: 50%;
+}
+.imgC {
+    display: flex;
+    grid-column: 8 / span 3;
+    gap: 10px;
+    align-items: center;
+}
+.conteiner {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    grid-template-columns: repeat(10, 1fr);
+    align-items: center;
+    justify-items: center;
+    gap: 10px;
+}
+
+button {
+    border-radius: 5vh;
+    border: none;
+    width: 20vh;
+    padding: 1.5vh;
+}
+
+@media (prefers-color-scheme: dark) {
+    header {
+        background-color: rgba(78, 191, 3, 0.482);
+        border-bottom: 3vh solid rgba(27, 68, 0, 0.84);
+    }
+    .User-icon {
+        background-color: rgb(116, 116, 116);
+        border: 3px solid rgb(116, 116, 116);
+    }
+    .User-icon:hover {
+        background-color: rgb(116, 116, 116);
+        border: 3px solid rgb(100, 100, 100);
+        cursor: pointer;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    header {
+        background-color: rgba(7, 208, 223, 0.386);
+        border-bottom: 3vh solid rgba(5, 60, 118, 0.84);
+    }
+    .User-icon {
+        background-color: azure;
+        border: 3px solid azure;
+    }
+    .User-icon:hover {
+        background-color: azure;
+        border: 3px solid rgb(211, 225, 225);
+        cursor: pointer;
+    }
+}
