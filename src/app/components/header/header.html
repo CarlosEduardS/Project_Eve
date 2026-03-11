@@ -4,19 +4,15 @@
         <img src="assets/logo-mini.png" alt="Aperos-icon" width="100" height="100" class="imgLogo">
         <div class="imgC">
             <img src="assets/user-icon.png" alt="User-icon" width="25" class="User-icon" (click)="toggleLogin()">
-            <p>{{UserName}}</p>
-            <button (click)="toggleMenu()">Menu</button>
+            <span (click)="toggleLogin()"> {{UserName}} </span>
         </div>
+        <button (click)="toggleMenu()" class="MenuBtn">Menu</button>
     </div>
 </header>
 @if (isMenuOpen) {
-    <div class="Menu">
-        <button>Home</button>
-        <button>Sobre</button>
-        <button>Controladora</button>
-    </div>
+    <app-menu [adminAcess]="isAdmin"/>
 }
 @if (isLoggedIn) {
-    <app-login/>
+    <app-login (fecharL)="toggleLogin()" />
 }
 <p></p>

@@ -1,9 +1,13 @@
-import { Component } from '@angular/core';
+import { booleanAttribute, Component, input } from '@angular/core';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-menu',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './menu.html',
   styleUrl: './menu.scss',
 })
-export class Menu {}
+export class Menu {
+  adminAcess = input<boolean>();
+
+}

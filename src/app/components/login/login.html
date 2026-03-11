@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div class="fundo" (click)="fecharLogin()"></div>
+<div class="bloco">
+    @if (isLogin) {
+        <input type="email" placeholder="Email" [(ngModel)]="email">
+        <input type="password" placeholder="Senha" [(ngModel)]="password">
+        @if (errorData) {
+            <div class="error"><p>Preencha os campos de email e senha para continuar.</p></div>
+        }
+        <div class="BtnConteiner">
+            <button (click)="logar()">Sign In</button>
+            <button (click)="passLogin()">Pass</button>
+        </div>
+    } @else {
+        <p></p>
+        @if (errorEmail) {
+            <div class="error"><p>Email ja existente. Faça Sign In</p></div>
+        }
+        <input type="text" placeholder="Como devemos te chamar?" [(ngModel)]="username">
+        <div>
+            <button (click)="isLogin = true">Back</button>
+            <button (click)="registrar()">Sign Up</button>
+        </div>
+    }
+</div>

@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { Header } from './components/header/header';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,14 @@ import { Header } from './components/header/header';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('Project-Eve');
+  url = '';
+
+  constructor(private router: Router, private title: Title){
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.url = event.urlAfterRedirects;
+        this.title.setTitle(`Project-Eve${this.url}`);
+      }
+    });
+  }
 }

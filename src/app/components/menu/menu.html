@@ -1,1 +1,10 @@
-<p>menu works!</p>
+<nav>
+    <ul>
+        <li><a routerLink="/home">Home</a></li>
+        <li><a routerLink="/info">Sobre</a></li>
+        <li><a routerLink="/contato">Contato</a></li>
+        @if (adminAcess()) {
+            <li><a routerLink="/controller">Controladora</a></li>
+        }
+    </ul>
+</nav>

@@ -21,9 +21,12 @@ h1 {
 }
 .imgC {
     display: flex;
-    grid-column: 8 / span 3;
+    grid-column: 9 / span 1;
     gap: 10px;
     align-items: center;
+}
+.MenuBtn {
+    grid-column: 10;
 }
 .conteiner {
     display: grid;
@@ -33,6 +36,8 @@ h1 {
     align-items: center;
     justify-items: center;
     gap: 10px;
+    align-content: center;
+    justify-content: center;
 }
 
 button {
