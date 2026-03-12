@@ -2,7 +2,7 @@ header {
     border-radius: 20px 20px 0 0;
     width: 100%;
     top: 2px;
-    height: 19%;
+    height: 14%;
     left: 0;
     position: fixed;
 }
@@ -25,9 +25,30 @@ h1 {
     gap: 10px;
     align-items: center;
 }
+
 .MenuBtn {
     grid-column: 10;
+    height: 35%;
+    width: 30%;
+    border-radius: 50em;
+    border: none;
+    background-color: none;
+
+    img {
+        width: 300%;
+        margin-left: -90%;
+        margin-top: -90%;
+    }
 }
+
+.MenuBtn:hover {    
+    img {
+        cursor: pointer;
+        filter: invert(80%);
+        border: none;
+    }
+}
+
 .conteiner {
     display: grid;
     width: 100%;
@@ -40,17 +61,23 @@ h1 {
     justify-content: center;
 }
 
-button {
-    border-radius: 5vh;
-    border: none;
-    width: 20vh;
-    padding: 1.5vh;
-}
+// button {
+//     border-radius: 5vh;
+//     border: none;
+//     width: 20vh;
+//     padding: 1.5vh;
+// }
 
 @media (prefers-color-scheme: dark) {
     header {
         background-color: rgba(78, 191, 3, 0.482);
-        border-bottom: 3vh solid rgba(27, 68, 0, 0.84);
+        border-bottom: 1vh solid rgba(27, 68, 0);
+        background-image: linear-gradient(to bottom, rgba(78, 191, 3, 0.482), rgba(27, 68, 0));
+        box-shadow: 
+        0 0 5px rgba(27, 68, 0, 1),
+        0 0 10px rgba(27, 68, 0, 1),
+        0 0 20px rgba(27, 68, 0, 1),
+        0 0 40px rgba(78, 191, 0, 0.2);
     }
     .User-icon {
         background-color: rgb(116, 116, 116);
@@ -61,12 +88,28 @@ button {
         border: 3px solid rgb(100, 100, 100);
         cursor: pointer;
     }
+    h1 {
+        text-shadow: 
+        0 0 5px black,
+        0 0 10px black,
+        0 0 20px black,
+        0 0 40px black;
+    }
 }
 
 @media (prefers-color-scheme: light) {
     header {
         background-color: rgba(7, 208, 223, 0.386);
-        border-bottom: 3vh solid rgba(5, 60, 118, 0.84);
+        border-bottom: 1vh solid rgba(5, 60, 118, 0.84);
+        background-image: linear-gradient(to bottom, rgba(7, 208, 223, 0.386), rgba(5, 60, 118));
+        box-shadow: 
+        0 0 5px rgba(5, 60, 118, 1),
+        0 0 10px rgba(5, 60, 118, 1),
+        0 0 20px rgba(5, 60, 118, 1),
+        0 0 40px rgba(7, 208, 223, 0.386);
+        // .MenuBtn {
+        //     background-color: rgba(7, 208, 223, 0.386);
+        // }
     }
     .User-icon {
         background-color: azure;
@@ -76,5 +119,12 @@ button {
         background-color: azure;
         border: 3px solid rgb(211, 225, 225);
         cursor: pointer;
+    }
+    h1 {
+        text-shadow: 
+        0 0 5px white,
+        0 0 10px white,
+        0 0 20px white,
+        0 0 40px white;
     }
 }

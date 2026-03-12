@@ -1,14 +1,45 @@
+import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-function random(min: number, max: number) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+function numberCodificator(): number {
+    const min = 100000000;
+    const max = 1000000000;
+    
+    return Math.floor(Math.random() * (max - min) + min);
+}
+
+
+function codificator(keyProduct: number, token: string): string {
+    const character = " ZAQWSXCDERFVBGTYHNMJUIKLOPÇzaqwsxcderfvbgtyhnmjuiklopç,.;~´[]'1234567890-=<>:^}{`+_(*&¨%$#@!)}¹²³£¢¬ºª§áéíóúãõàèìòù";
+
+    const keyString = keyProduct.toString();
+    const keyChars: number[] = [];
+    
+    for (const char of keyString) {
+        if (/\d/.test(char)) {
+            keyChars.push(parseInt(char, 10));
+        }
+    }
+
+    const encodedChars = token.split('').map((char, i) => {
+        const keyIndex = i % keyChars.length;
+        const posicao = character.indexOf(char);
+        
+        const indexBusca = posicao === -1 ? 0 : posicao;
+
+        const novoIndice = (indexBusca + keyChars[keyIndex]) % character.length;
+        
+        return character[novoIndice];
+    });
+
+    return encodedChars.join('') + keyChars.join('');
 }
 
 @Component({
   selector: 'app-login',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.html',
   styleUrl: './login.scss',
 })
@@ -21,6 +52,8 @@ export class Login {
   email = '';
   password = '';
   username = '';
+  Message = '';
+
   isLogin = true;
   errorData = false;
   errorEmail = false;
@@ -42,32 +75,37 @@ export class Login {
   }
 
   logar(){
+    document.getElementsByClassName('message')[0].setAttribute('style', 'opacity: 0');
     if (!this.email || !this.password) {
       this.errorData = true;
       return;
     }
-
-    // this.http.post(this.urlApi, newUser)
-    //   .subscribe();
   }
   registrar(){
-    if (!this.username) 
+    document.getElementsByClassName('message')[0].setAttribute('style', 'opacity: 1');
+    if (!this.username) {
+      this.Message = 'Preencha o campo de nome';
       return;
+    }
+    for (let i = 0; i < 5; i++) {
+      this.password = codificator(numberCodificator(), this.password)
+    }
 
     const newUser = {
-      username: this.username,
       password: this.password,
+      username: this.username,
       email: this.email,
-      keyCode: random(10000000, 99999999),
       id: 0
     }
     
     this.isLogin = false;
     
-    this.http.post(this.urlUserUp, newUser)
-      .subscribe((resp) => {
-        if (resp == 'exist') {
-          alert('Email já cadastrado');
+    this.http.post(this.urlUserUp, newUser, { responseType: 'text' })
+      .subscribe((result) => {
+        if (result === 'exist') {
+          this.Message = 'Email já cadastrado';
+        } else  {
+          this.Message = 'Usuário criado com sucesso!';
         }
       });
   }

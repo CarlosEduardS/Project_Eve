@@ -15,8 +15,9 @@
         @if (errorEmail) {
             <div class="error"><p>Email ja existente. Faça Sign In</p></div>
         }
+        <div class="message" [ngStyle]="{'opacity': Message ? 1 : 0}"><p>{{ Message }}</p></div>
         <input type="text" placeholder="Como devemos te chamar?" [(ngModel)]="username">
-        <div>
+        <div class="BtnConteiner">
             <button (click)="isLogin = true">Back</button>
             <button (click)="registrar()">Sign Up</button>
         </div>
