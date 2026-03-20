@@ -1,7 +1,27 @@
-body {
-    background-color: black;
-    color: white;
+// styles.scss
+@use 'styles/breakpoints' as *;
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+html {
+  font-size: 16px; // base pra cálculos em rem
+}
+
+body {
+  font-family: sans-serif;
+  min-height: 100dvh; // dvh = dynamic viewport height, melhor no mobile
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
 @media (prefers-color-scheme: light) {
     body {
         background-color: azure;

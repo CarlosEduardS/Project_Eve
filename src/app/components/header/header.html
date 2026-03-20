@@ -1,12 +1,15 @@
 <header>
     <div class="conteiner">
         <h1>Project-EVE</h1>
-        <img src="assets/logo-mini.png" alt="Aperos-icon" width="100" height="100" class="imgLogo">
+        <img src="assets/logo-mini.png" alt="Aperos-icon" width="120" class="imgLogo">
         <div class="imgC">
             <img src="assets/user-icon.png" alt="User-icon" width="25" class="User-icon" (click)="toggleLogin()">
             <span (click)="toggleLogin()"> {{UserName}} </span>
         </div>
-        <button (click)="toggleMenu()" class="MenuBtn"><img src="assets/3barImage.png" alt="3 Barras"></button>
+        <button (click)="toggleMenu()" class="MenuBtn">
+            Test
+            <!-- <img src="assets/3barImage.png" alt="3 Barras"> -->
+        </button>
     </div>
 </header>
 @if (isMenuOpen) {
