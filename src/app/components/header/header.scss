@@ -1,130 +1,49 @@
-header {
-    border-radius: 20px 20px 0 0;
-    width: 100%;
-    top: 2px;
-    height: 14%;
-    left: 0;
-    position: fixed;
-}
-p {
-    margin-top: 25vh;
-}
+@use 'styles/breakpoints' as *;
+
 h1 {
-    grid-column: 1 / span 2;
-}
-.imgLogo {
-    grid-column: 3;
-    margin-left: -20vh;
-}
-.User-icon {
-    border-radius: 50%;
-}
-.imgC {
-    display: flex;
-    grid-column: 9 / span 1;
-    gap: 10px;
-    align-items: center;
-}
+    font-size: 2rem;
+    text-align: center;
 
-.MenuBtn {
-    grid-column: 10;
-    height: 35%;
-    width: 30%;
-    border-radius: 50em;
-    border: none;
-    background-color: none;
-
-    img {
-        width: 300%;
-        margin-left: -90%;
-        margin-top: -90%;
+    @include lg {
+        text-align: none;
     }
 }
 
-.MenuBtn:hover {    
-    img {
-        cursor: pointer;
-        filter: invert(80%);
-        border: none;
-    }
+button {
+    padding: 20px;
 }
 
 .conteiner {
+    background-color: aliceblue;
     display: grid;
-    width: 100%;
-    height: 100%;
-    grid-template-columns: repeat(10, 1fr);
-    align-items: center;
     justify-items: center;
-    gap: 10px;
-    align-content: center;
-    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(6, 1fr);
+    
+    h1 {
+        grid-column: span 3;
+        
+    }
+    
+    @include lg {
+        grid-template-columns: repeat(10, 1fr);
+        h1 {
+            grid-column: span 2;
+        }
+        button {
+            @include lg {
+                grid-column: 10;
+            }
+        }
+        .imgC {
+            @include lg {
+                grid-column: 9;
+            }
+        }
+    }
 }
 
-// button {
-//     border-radius: 5vh;
-//     border: none;
-//     width: 20vh;
-//     padding: 1.5vh;
+// @keyframes girar {
+//   from { transform: rotate(0deg); }
+//   to { transform: rotate(360deg); }
 // }
-
-@media (prefers-color-scheme: dark) {
-    header {
-        background-color: rgba(78, 191, 3, 0.482);
-        border-bottom: 1vh solid rgba(27, 68, 0);
-        background-image: linear-gradient(to bottom, rgba(78, 191, 3, 0.482), rgba(27, 68, 0));
-        box-shadow: 
-        0 0 5px rgba(27, 68, 0, 1),
-        0 0 10px rgba(27, 68, 0, 1),
-        0 0 20px rgba(27, 68, 0, 1),
-        0 0 40px rgba(78, 191, 0, 0.2);
-    }
-    .User-icon {
-        background-color: rgb(116, 116, 116);
-        border: 3px solid rgb(116, 116, 116);
-    }
-    .User-icon:hover {
-        background-color: rgb(116, 116, 116);
-        border: 3px solid rgb(100, 100, 100);
-        cursor: pointer;
-    }
-    h1 {
-        text-shadow: 
-        0 0 5px black,
-        0 0 10px black,
-        0 0 20px black,
-        0 0 40px black;
-    }
-}
-
-@media (prefers-color-scheme: light) {
-    header {
-        background-color: rgba(7, 208, 223, 0.386);
-        border-bottom: 1vh solid rgba(5, 60, 118, 0.84);
-        background-image: linear-gradient(to bottom, rgba(7, 208, 223, 0.386), rgba(5, 60, 118));
-        box-shadow: 
-        0 0 5px rgba(5, 60, 118, 1),
-        0 0 10px rgba(5, 60, 118, 1),
-        0 0 20px rgba(5, 60, 118, 1),
-        0 0 40px rgba(7, 208, 223, 0.386);
-        // .MenuBtn {
-        //     background-color: rgba(7, 208, 223, 0.386);
-        // }
-    }
-    .User-icon {
-        background-color: azure;
-        border: 3px solid azure;
-    }
-    .User-icon:hover {
-        background-color: azure;
-        border: 3px solid rgb(211, 225, 225);
-        cursor: pointer;
-    }
-    h1 {
-        text-shadow: 
-        0 0 5px white,
-        0 0 10px white,
-        0 0 20px white,
-        0 0 40px white;
-    }
-}
