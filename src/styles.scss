@@ -24,11 +24,7 @@ img, video {
 
 @media (prefers-color-scheme: light) {
     body {
-        background-color: azure;
-        color: black;
-    }
-    button {
-        background-color: azure;
+        background-color: whitesmoke;
         color: black;
     }
 }
@@ -36,6 +32,6 @@ img, video {
 @media (prefers-color-scheme: dark) {
     body {
         background-color: rgb(33, 33, 33);
-        color: white;
+        color: rgb(216, 216, 216);
     }
 }

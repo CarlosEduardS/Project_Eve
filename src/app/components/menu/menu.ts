@@ -1,4 +1,4 @@
-import { booleanAttribute, Component, input } from '@angular/core';
+import { booleanAttribute, Component, input, output } from '@angular/core';
 import { RouterLink } from "@angular/router";
 
 @Component({
@@ -9,5 +9,9 @@ import { RouterLink } from "@angular/router";
 })
 export class Menu {
   adminAcess = input<boolean>();
+  fecharM = output<boolean>();
 
+  fecharMenu() {
+    this.fecharM.emit(true);
+  }
 }

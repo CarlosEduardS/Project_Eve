@@ -1,10 +1,9 @@
-<nav>
-    <ul>
-        <li><a routerLink="/home">Home</a></li>
-        <li><a routerLink="/info">Sobre</a></li>
-        <li><a routerLink="/contato">Contato</a></li>
-        @if (adminAcess()) {
-            <li><a routerLink="/controller">Controladora</a></li>
-        }
-    </ul>
-</nav>
+<div class="fundo" (click)="fecharMenu()"></div>
+<div>
+    <a routerLink="/home">Home</a>
+    <a routerLink="/info">Sobre</a>
+    <a routerLink="/contato">Contato</a>
+    @if (adminAcess()) {
+        <a routerLink="/controller">Controladora</a>
+    }
+</div>

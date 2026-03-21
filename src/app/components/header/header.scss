@@ -1,47 +1,72 @@
 @use 'styles/breakpoints' as *;
 
-h1 {
-    font-size: 2rem;
-    text-align: center;
-
-    @include lg {
-        text-align: none;
-    }
+.barraConteiner{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 2px;
+    background-color: transparent;
+    border: none;
 }
 
-button {
-    padding: 20px;
+.barras {
+    background-color: gray;
+    width: 2rem;
+    height: 3px;
+}
+
+p {
+    margin-top: 8rem;
+    @include lg {
+        margin-top: 12rem;
+    }
 }
 
 .conteiner {
-    background-color: aliceblue;
+    background-color: white;
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    top: 0;
     display: grid;
+    backdrop-filter: blur(10px) saturate(150%);
     justify-items: center;
     align-items: center;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(10, 1fr);
     
-    h1 {
-        grid-column: span 3;
-        
+    .logo {
+        grid-column: 2 / 8;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        img.titleImg {
+            grid-column: span 2;
+        }
+    }
+    button {
+        grid-column: 10;
+    }
+    .imgC {
+        grid-column: 9;
     }
     
     @include lg {
-        grid-template-columns: repeat(10, 1fr);
-        h1 {
-            grid-column: span 2;
-        }
-        button {
-            @include lg {
-                grid-column: 10;
-            }
-        }
-        .imgC {
-            @include lg {
-                grid-column: 9;
-            }
+        height: 5rem;
+        .logo {
+            grid-column: 2 / 7;
         }
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .conteiner {
+        background-color: rgba(78, 78, 78, 0.242);
+    }
+}
+@media (prefers-color-scheme: light) {
+    .conteiner {
+        background-color: white;
+    }
+}
+
 
 // @keyframes girar {
 //   from { transform: rotate(0deg); }
